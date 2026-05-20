@@ -1,12 +1,14 @@
 
-import React from 'react';
+import React, {useRef} from 'react';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from "gsap/all";
 import gsap from 'gsap';
+import {useMediaQuery} from "react-responsive";
 
 
 
 const Hero = () => {
+
     useGSAP(() => {
         const heroSplit = new SplitText('.title', {type: 'chars, words'});
         const paragraphSplit = new SplitText('.subtitle', {type: 'lines'});
@@ -41,16 +43,12 @@ const Hero = () => {
 
     }, []);
 
+
+
     return (
         <>
             <section id='hero' className='noisy'>
                 <h1 className="title">Tranquil</h1>
-
-                <img src="/images/smallpics/singleflotte10.jpg"
-                alt="left-leaf" className="left-leaf" />
-
-                <img src="/images/smallpics/globhouse10.jpg"
-                     alt="globehouse" className="right-leaf" />
 
                 <div className="body">
                     <div className="content">
@@ -61,22 +59,17 @@ const Hero = () => {
                             </p>
                         </div>
 
-                        <div className="view-cocktails">
+                        <div className="view-suites">
                             <p className="subtitle">
                                 From peaceful nights to comfortable mornings — our rooms offer everything you need to feel at home.
                             </p>
-                            <a href="#cocktails">View Rooms</a>
+                            <a href="#suites">View Suites</a>
 
                         </div>
-
                     </div>
-
                 </div>
-
             </section>
-
         </>
-
     )
 }
 
