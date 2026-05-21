@@ -13,7 +13,7 @@ const Hero = () => {
         const heroSplit = new SplitText('.title', {type: 'chars, words'});
         const paragraphSplit = new SplitText('.subtitle', {type: 'lines'});
 
-        heroSplit.chars.forEach((char) => char.classList.add('text-gradient'));
+
         gsap.from(heroSplit.chars, {
             yPercent: 100,
             duration: 1.8,
@@ -44,7 +44,6 @@ const Hero = () => {
     }, []);
 
 
-
     return (
         <>
             <section id='hero' className='noisy'>
@@ -57,6 +56,14 @@ const Hero = () => {
                             <p className="subtitle">
                                 Wake up Somewhere <br/> Wonderful
                             </p>
+                        </div>
+
+                        {/* CENTER IMAGE */}
+                        <div className="hero-center-image">
+                            <img
+                                src="/images/smallpics/Bamboo.jpg"
+                                alt="bamboo"
+                            />
                         </div>
 
                         <div className="view-suites">

@@ -5,8 +5,8 @@ const navLinks = [
         { id: 'doubleRooms', title: 'Double Room'},
         { id: 'singleRooms', title: 'Single Room'},
         { id: 'findUS', title: 'Where We Are'},
-        { id: 'logon', title: 'Logon'},
-        { id: 'admin', title: 'Admin'}
+        { id: 'logon', title: 'Logon', path: '/login'},
+        { id: 'admin', title: 'Admin', path:'/admin'}
    ];
 
 const suiteLists = [
@@ -92,6 +92,41 @@ const openingHours = [
     { day: "Sun", time: "9:00am – 1am" },
 ];
 
+const reservedRoomsData = [
+    {
+        id: 1,
+        room: "Golden Horizon Suite",
+        date: "12 Jun - 16 Jun 2026"
+    },
+    {
+        id: 2,
+        room: "Zen Garden Double Room",
+        date: "20 Jun - 25 Jun 2026"
+    }
+];
+
+const vacantRoomsData = [
+    {
+        id: 1,
+        room: "Crimson Silk Single Room",
+        type: "Single",
+        amount: 3
+    },
+    {
+        id: 2,
+        room: "Hikari Nature Room",
+        type: "Double",
+        amount: 2
+    },
+    {
+        id: 3,
+        room: "Golden Horizon Suite",
+        type: "Suite",
+        amount: 1
+    }
+];
+
+
 
 
 
@@ -103,5 +138,7 @@ export {
     featureLists,
     openingHours,
     storeInfo,
+    vacantRoomsData,
+    reservedRoomsData
 
 };
