@@ -52,7 +52,10 @@ const Hero = () => {
                 <div className="body">
                     <div className="content">
                         <div className="space-y-5 hidden md:block">
-                            <p>Rest. Relax. Recharge.</p>
+                            <p className="text-yellow-400 text-lg font-semibold">Rest.</p>
+                            <p className="text-green-800 text-lg font-semibold">Relax.</p>
+                            <p className="text-yellow-400 text-lg font-semibold">Recharge.</p>
+
                             <p className="subtitle">
                                 Wake up Somewhere <br/> Wonderful
                             </p>

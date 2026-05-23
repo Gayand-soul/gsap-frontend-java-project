@@ -1,44 +1,53 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../services/api.js";
+
 
 const AuthPage = () => {
 
-    // STATES
-    const [email, setEmail] = useState("");
+    // STATES───────────────────────────────────────────────────────────────
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading]   = useState(false);
+    const [error, setError]  = useState(null);
 
     const navigate = useNavigate();
 
-    // LOGIN LOGIC
-    const handleLogin = () => {
+    // LOGIN LOGIC───────────────────────────────────────────────────────────────
+    const handleLogin = async () => {
 
-        // ADMIN LOGIN
-        if(email === "admin@mail.com" && password === "admin007") {
+        setError(null);
+        setLoading(true);
 
-            localStorage.setItem("isAdmin", "true");
-            localStorage.setItem("isUser", "false");
+        try {
+            const { token, role } = await loginUser(username, password);
 
-            navigate("/admin");
+            // Store JWT — used for all protected API calls
+            localStorage.setItem("adminToken", token);
 
-            return;
+            // Clean up old keys from previous version
+            localStorage.removeItem("isAdmin");
+            localStorage.removeItem("isUser");
+
+            if (role === "ROLE_ADMIN") {
+                navigate("/admin");
+            } else {
+                navigate("/");
+            }
+
+        } catch (err) {
+            setError("Wrong username or password. Please try again.");
+        } finally {
+            setLoading(false);
         }
-
-        // USER LOGIN
-        if(email === "user@mail.com" && password === "user123") {
-
-            localStorage.setItem("isUser", "true");
-            localStorage.setItem("isAdmin", "false");
-
-            navigate("/");
-            //force to reload window
-            window.location.reload();
-            return;
-        }
-
-        // WRONG LOGIN
-        alert("Wrong email or password");
     };
 
+    // Allow Enter key to submit
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") handleLogin();
+    };
+
+    // ── Render ──────────────────────────────────────────────
     return (
 
         <section
@@ -46,7 +55,7 @@ const AuthPage = () => {
             className="w-full min-h-screen flex flex-col md:flex-row items-center justify-center gap-16 px-6"
         >
 
-            {/* LEFT - LOGIN / SIGNUP */}
+            {/* LEFT - LOGIN */}
             <div className="flex flex-col items-center justify-center text-center w-full max-w-md">
 
                 <h2 className="text-4xl mb-8">
@@ -55,12 +64,20 @@ const AuthPage = () => {
 
                 <div className="space-y-4 w-full">
 
-                    {/* EMAIL */}
+                    {/* ERROR MESSAGE */}
+                    {error && (
+                        <p className="text-red-400 text-sm border border-red-400 rounded-md py-2 px-4">
+                            {error}
+                        </p>
+                    )}
+
+                    {/* USERNAME */}
                     <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        type="text"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        onKeyDown={handleKeyDown}
                         className="w-full p-3 border border-gray-300 rounded-md text-center"
                     />
 
@@ -70,15 +87,17 @@ const AuthPage = () => {
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        onKeyDown={handleKeyDown}
                         className="w-full p-3 border border-gray-300 rounded-md text-center"
                     />
 
                     {/* SIGN IN */}
                     <button
                         onClick={handleLogin}
-                        className="w-full bg-yellow-500 text-black py-3 rounded-md hover:bg-yellow-400 transition"
+                        disabled={loading}
+                        className="w-full bg-yellow-500 text-black py-3 rounded-md hover:bg-yellow-400 transition disabled:opacity-50"
                     >
-                        Sign In
+                        {loading ? "Signing in..." : "Sign In"}
                     </button>
 
                     {/* SIGN UP */}

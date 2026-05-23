@@ -53,11 +53,12 @@ body {
 }
 
 @utility masked-img {
-    mask-image: url("/images/...");
+
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: 50%;
 }
+
 @layer components {
     main {
         @apply w-full overflow-x-hidden;
@@ -109,7 +110,7 @@ body {
                 }
 
                 p:last-of-type {
-                    @apply 2xl:text-start text-center;
+                    @apply 2xl:text-start text-center text-3xl;
                 }
 
                 .hero-center-image {
@@ -123,7 +124,7 @@ body {
                 }
 
                 .view-suites {
-                    @apply space-y-5 text-lg lg:max-w-2xs md:max-w-xs w-full;
+                    @apply space-y-5 text-4xl lg:max-w-2xs md:max-w-xs w-full;
 
                     p {
                         @apply text-left;
@@ -314,4 +315,98 @@ body {
             }
         }
     }
+
+    #booking-page {
+        @apply relative min-h-dvh w-full;
+
+        .booking-back-btn {
+            @apply fixed top-6 left-6 z-50 text-sm text-yellow border border-yellow px-4 py-2 rounded-full
+            hover:bg-yellow hover:text-black transition-colors duration-200;
+        }
+
+        .booking-hero {
+            @apply relative w-full h-[60vh] overflow-hidden;
+
+            .booking-hero-img {
+                @apply w-full h-full object-cover;
+            }
+
+            .booking-hero-overlay {
+                @apply absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent
+                flex flex-col justify-end px-8 md:px-20 pb-12;
+
+                .booking-type-badge {
+                    @apply text-xs tracking-widest uppercase text-yellow border border-yellow
+                    px-3 py-1 rounded-full w-fit mb-4;
+                }
+
+                h1 {
+                    @apply font-modern-negra text-4xl md:text-6xl text-white max-w-2xl;
+                }
+
+                .booking-price {
+                    @apply text-2xl font-medium text-yellow mt-2;
+                    span { @apply text-base text-white/60; }
+                }
+            }
+        }
+
+        .booking-body {
+            @apply container mx-auto px-5 2xl:px-0 py-20 flex flex-col md:flex-row gap-16;
+
+            .booking-detail {
+                @apply flex-1 space-y-6;
+
+                h2 { @apply font-modern-negra text-3xl md:text-4xl; }
+                p  { @apply text-white/70 leading-relaxed; }
+
+                .booking-amenities {
+                    @apply space-y-2 pt-4;
+                    li { @apply text-sm text-white/60 tracking-wide; }
+                }
+            }
+
+            .booking-form-wrapper {
+                @apply w-full md:w-[420px] shrink-0;
+
+                .booking-form {
+                    @apply space-y-5;
+
+                    h2 { @apply font-modern-negra text-3xl mb-6; }
+
+                    label {
+                        @apply flex flex-col gap-2 text-sm text-white/60;
+
+                        input, select {
+                            @apply bg-white/5 border border-white/20 text-white rounded-lg px-4 py-3
+                            focus:outline-none focus:border-yellow transition-colors duration-200
+                            placeholder:text-white/30;
+                        }
+                        select option { @apply bg-black; }
+                    }
+
+                    .booking-dates {
+                        @apply grid grid-cols-2 gap-4;
+                    }
+                }
+
+                .booking-success {
+                    @apply text-center space-y-4 py-10;
+                    .success-icon { @apply text-yellow text-4xl; }
+                    h3 { @apply font-modern-negra text-3xl; }
+                    p  { @apply text-white/60 text-sm; }
+                    strong { @apply text-white; }
+                }
+            }
+        }
+
+        .booking-submit-btn {
+            @apply w-full bg-yellow text-black font-semibold py-4 rounded-xl mt-2
+            hover:bg-yellow/90 transition-colors duration-200 tracking-wide;
+        }
+    }
+
+
+
+
 }

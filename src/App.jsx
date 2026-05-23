@@ -10,6 +10,7 @@ import SingleRoom from "./components/SingleRoom.jsx";
 import FindUs from "./components/FindUs.jsx";
 import AuthPage from "./components/AuthPage.jsx";
 import Admin from "./components/Admin.jsx";
+import Booking from './components/Booking.jsx';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -54,6 +55,9 @@ const App = () => {
 
             {/* ADMIN */}
             <Route path="/admin" element={<Admin />} />
+
+            {/* Booking Page */}
+            <Route path="/booking/:roomType" element={<Booking />} />
 
         </Routes>
 

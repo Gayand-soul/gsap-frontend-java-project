@@ -1,9 +1,16 @@
 
 import React from 'react';
 import {suiteLists} from "../../constants/index.js";
+import {useNavigate} from "react-router-dom";
 
+
+
+const toSlug =(name)=> name.toLowerCase().replace(/\s+/g, '-');
 
 const Suite = () => {
+
+    const navigate = useNavigate();
+
     return(
         <section id="suites" className="noisy">
             <div className="images">
@@ -20,7 +27,12 @@ const Suite = () => {
                         {suiteLists.map(({name,detail, price}) => (
                             <li key={name}>
                                 <div className="md:me-28">
-                                    <h3>{name}</h3>
+                                    <h3
+                                        onClick={() => navigate(`/booking/${toSlug(name)}`)}
+                                        style={{ cursor: 'pointer' }}
+                                        className="hover:underline underline-offset-4">
+                                        {name}
+                                    </h3>
                                     <p>{detail}</p>
                                 </div>
                                 <span>{price}</span>

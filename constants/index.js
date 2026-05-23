@@ -13,12 +13,12 @@ const suiteLists = [
     {
         name: "Secret Garden Heaven Suite",
         detail: "Perfect for guests seeking comfort, serenity, and a close connection to nature, this suite combines luxury with the charm of a private garden retreat.",
-        price: "$200",
+        price: "$300",
     },
     {
         name: "The Maharaja Lake Suite",
         detail: "Step into a beautifully designed Indian-inspired suite where elegance and tranquility meet. The suite features rich colors, handcrafted details, and a private balcony overlooking the peaceful lake.",
-        price: "$250",
+        price: "$300",
     },
     {
         name: "The Glittering Sea Loft",
@@ -33,17 +33,17 @@ const doubleRoomLists = [
     {
         name: "Zen Garden Double Room",
         detail: "Inspired by Japanese simplicity and harmony, this bright double room offers a peaceful and elegant atmosphere. Large glass windows invite natural light into the space and create a seamless connection with the beautiful garden outside.",
-        price: "$150",
+        price: "$200",
     },
     {
         name: "Hikari Nature Room",
         detail: "Designed with Japanese-inspired minimalism, this double room is filled with natural light from floor-to-ceiling glass windows overlooking the garden. Soft neutral colors, light wood accents, and clean lines create a soothing and sophisticated environment.",
-        price: "$150",
+        price: "$200",
     },
     {
         name: "The Kyoto Light Room",
         detail: "Experience a calming retreat in this Japanese-inspired double room surrounded by garden views and natural daylight. Large panoramic windows allow sunlight to flow beautifully through the white, beige, and wooden interior design.",
-        price: "$150",
+        price: "$200",
     }
 
 ];
@@ -66,6 +66,76 @@ const singleRoomLists = [
     }
 
 ];
+
+const roomData = {
+    "secret-garden-heaven-suite": {
+        name: "Secret Garden Heaven Suite",
+        detail: "Perfect for guests seeking comfort, serenity, and a close connection to nature, this suite combines luxury with the charm of a private garden retreat.",
+        price: "$200",
+        image: "/images/suite10.jpg",
+        type: "Suite",
+    },
+    "the-maharaja-lake-suite": {
+        name: "The Maharaja Lake Suite",
+        detail: "Step into a beautifully designed Indian-inspired suite where elegance and tranquility meet. Rich colors, handcrafted details, and a private balcony overlooking the peaceful lake.",
+        price: "$250",
+        image: "/images/suite20.jpg",
+        type: "Suite",
+    },
+    "the-glittering-sea-loft": {
+        name: "The Glittering Sea Loft",
+        detail: "Experience luxury in this stunning two-level suite. Large windows and elevated views offer breathtaking panoramas of the sea, filling the suite with natural light.",
+        price: "$300",
+        image: "/images/suite30.jpg",
+        type: "Suite",
+    },
+    "zen-garden-double-room": {
+        name: "Zen Garden Double Room",
+        detail: "Inspired by Japanese simplicity and harmony, this bright double room offers a peaceful and elegant atmosphere. Large glass windows invite natural light into the space and create a seamless connection with the beautiful garden outside.",
+        price: "$150",
+        image: "/images/doubleRoom20.jpg",
+        type: "Double Room",
+    },
+    "hikari-nature-room": {
+        name: "Hikari Nature Room",
+        detail: "Designed with Japanese-inspired minimalism, this double room is filled with natural light from floor-to-ceiling glass windows overlooking the garden. Soft neutral colors, light wood accents, and clean lines create a soothing and sophisticated environment.",
+        price: "$150",
+        image: "/images/doubleRoom10.jpg",
+        type: "Double Room",
+    },
+    "the-kyoto-light-room": {
+        name: "The Kyoto Light Room",
+        detail: "Experience a calming retreat in this Japanese-inspired double room surrounded by garden views and natural daylight. Large panoramic windows allow sunlight to flow beautifully through the white, beige, and wooden interior design.",
+        price: "$150",
+        image: "/images/doubleRoom30.jpg",
+        type: "Double Room",
+    },
+    "crimson-silk-single-room": {
+        name: "Crimson Silk Single Room",
+        detail: "This China-inspired single room blends rich red tones with rustic elegance to create a warm and inviting atmosphere. Traditional design elements meet modern comfort, offering a peaceful space with cultural character.",
+        price: "$100",
+        image: "/images/SingleRed30.jpg",
+        type: "Single Room",
+    },
+    "red-lantern-serenity-room": {
+        name: "Red Lantern Serenity Room",
+        detail: "The interior reflects harmony and tradition, creating a calm and grounding environment. Carefully chosen details and warm textures bring depth and cultural elegance to the space.",
+        price: "$100",
+        image: "/images/SingleRed20.jpg",
+        type: "Single Room",
+    },
+    "imperial-rouge-single-room": {
+        name: "Imperial Rouge Single Room",
+        detail: "Experience a calming retreat in this Japanese-inspired double room surrounded by garden views and natural daylight. Large panoramic windows allow sunlight to flow beautifully through the white, beige, and wooden interior design.",
+        price: "$100",
+        image: "/images/SingleRed40.jpg",
+        type: "Single Room",
+    },
+
+};
+
+
+
 
 const featureLists = [
     "Perfectly balanced blends",
@@ -139,6 +209,7 @@ export {
     openingHours,
     storeInfo,
     vacantRoomsData,
-    reservedRoomsData
+    reservedRoomsData,
+    roomData
 
 };
